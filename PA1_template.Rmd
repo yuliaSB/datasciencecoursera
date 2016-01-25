@@ -1,0 +1,52 @@
+---
+title: "Reproducible research: Course Project 1"
+output: html_document
+---
+Load the data
+
+```{r}
+activity <- read.csv("activity.csv")
+```
+
+Calculate steps taken per day
+```{r}
+splitByDate<-split(activity, activity$date, drop=TRUE)
+StepsByDay <- sapply(splitByDate, function(activity) sum(activity$steps, na.rm = TRUE))
+```
+Histogram of the steps taken by day
+```{r}
+hist(StepsByDay,
+     main = ("Histogram of the total number of steps taken each day"))
+```
+Calculate the mean and medium of the steps taken per day
+```{r}
+summary(StepsByDay)
+```
+Daily activity pattern
+
+```{r}
+splitIntvl <- split(activity, activity$interval)
+AvgSteps <- sapply(splitIntvl, function(activity) mean(activity$steps, na.rm = TRUE))
+```
+Time series plot of the average steps taken for a 5 min interval across all days
+```{r}
+plot(AvgSteps, type="l")
+
+```
+
+
+
+
+
+Maximum number of steps per 5 min interval
+```{r}
+max(AvgSteps)
+```
+Imputing missing values
+
+1. The total number of missing values in the set
+```{r}
+sum (is.na(activity))
+
+```
+
