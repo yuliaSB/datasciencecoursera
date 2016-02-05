@@ -17,4 +17,5 @@ FinalConsumption2days$Global_active_power <- as.numeric(levels(FinalConsumption2
 # create the plot
 
 plot(FinalConsumption2days$DateTime,FinalConsumption2days$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
-
+dev.copy(png, file = "plot2.png", width = 480, height = 480)
+dev.off()
