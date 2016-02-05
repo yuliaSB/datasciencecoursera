@@ -19,7 +19,7 @@ hist(FinalConsumption2days$Global_active_power, col = "red", main = "Global Acti
 dev.copy(png, file = "plot1.png", width = 480, height = 480)
 dev.off()
 
-dev.off()
+
 
 
 
