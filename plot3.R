@@ -11,10 +11,8 @@ FinalConsumption2days <- subset(NewConsumption, select = Global_active_power:Dat
 # convert the Date and Time variables to Date/Time classes
 FinalConsumption2days$DateTime <- strptime(FinalConsumption2days$DateTime, format = "%d/%m/%Y %H:%M:%S" )
 
-# convert the Date and Time variables to Date/Time classes 
+# convert into numeric classes
 FinalConsumption2days$Global_active_power <- as.numeric(levels(FinalConsumption2days$Global_active_power))[as.integer(FinalConsumption2days$Global_active_power)]
-
-# convert into numeric class
 FinalConsumption2days$Sub_metering_1 <- as.numeric(levels(FinalConsumption2days$Sub_metering_1))[as.integer(FinalConsumption2days$Sub_metering_1)]
 FinalConsumption2days$Sub_metering_2 <- as.numeric(levels(FinalConsumption2days$Sub_metering_2))[as.integer(FinalConsumption2days$Sub_metering_2)]
 FinalConsumption2days$Sub_metering_3 <- as.numeric(levels(FinalConsumption2days$Sub_metering_3))[as.integer(FinalConsumption2days$Sub_metering_3)]
